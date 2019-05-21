@@ -14,7 +14,7 @@
                 <tbody>
                     <tr>
                         <td>Nome:</td>
-                        <td><h:inputText value="#{combustivelBean.co1.nome}" /></td>
+                        <td><p:inputText value="#{combustivelBean.co1.nome}" /></td>
                         <td>Estado:</td>
                         <td>
                             <h:selectOneRadio value="#{combustivelBean.co1.estado}">
@@ -38,8 +38,11 @@
                     <h:outputText value="#{combustivel.nome}"/>
                 </p:column>                              
                 <p:column>
-                    <p:commandLink  update="tabCombustiveis">
+                    <p:commandLink actionListener="#{combustivelBean.deletar(combustivel.id)}" update="tabCombustiveis">
                         <h:graphicImage url="/img/remove.png" alt="Excluir"/>
+                    </p:commandLink>
+                    <p:commandLink actionListener="#{combustivelBean.editar(combustivel.id)}" update="@all">
+                        <h:graphicImage url="/img/edit.png" alt="Editar"/>
                     </p:commandLink>
                 </p:column>                
             </p:dataTable>

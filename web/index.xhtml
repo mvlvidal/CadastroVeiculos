@@ -14,28 +14,28 @@
                 <tbody>
                     <tr>
                         <td>Modelo:</td>
-                        <td><h:inputText value="#{veiculoBean.v1.modelo}" /></td>
+                        <td><p:inputText value="#{veiculoBean.v1.modelo}" /></td>
                         <td>Marca:</td>
-                        <td><h:inputText value="#{veiculoBean.v1.marca}" /></td>
+                        <td><p:inputText value="#{veiculoBean.v1.marca}" /></td>
                         <td>Categoria:</td>
                         <td>
                             <p:selectOneMenu value="#{veiculoBean.v1.categoria}" >
                                 <f:selectItem itemLabel="Selecione" />
-                                <f:selectItems value="#{categoriaBean.categorias}" var="cat" itemValue="#{cat}" itemLabel="#{cat.nome}"/>
+                                <f:selectItems var="cat" value="#{categoriaBean.categorias}" itemValue="#{cat.id}" itemLabel="#{cat.nome}"/>
                             </p:selectOneMenu>
                         </td>
                     </tr>
                     <tr>
                         <td>Cor:</td>
-                        <td><h:inputText value="#{veiculoBean.v1.cor}" /></td>
+                        <td><p:inputText value="#{veiculoBean.v1.cor}" /></td>
                         <td>Potência(HP):</td>
-                        <td><h:inputText value="#{veiculoBean.v1.potencia}"/></td>
+                        <td><p:inputText value="#{veiculoBean.v1.potencia}"/></td>
                     </tr>
                     <tr>
                         <td>Combustível:</td>  
                         <td colspan="5">
                             <p:selectOneRadio value="#{veiculoBean.v1.combustivel}" >
-                                <f:selectItems value="#{combustivelBean.combustiveis}" var="com" itemValue="#{com}" itemLabel="#{com.nome}"/>
+                                <f:selectItems  var="com" value="#{combustivelBean.combustiveis}" itemValue="#{com.id}" itemLabel="#{com.nome}"/>
                             </p:selectOneRadio>   
                         </td>
                     </tr>
@@ -72,7 +72,7 @@
                     <p:commandLink actionListener="#{veiculoBean.deletar(veiculo.id)}" update="tabVeiculos">
                         <h:graphicImage url="/img/remove.png" alt="Excluir"/>
                     </p:commandLink>
-                    <p:commandLink actionListener="#{veiculoBean.editar(veiculo.id)}" >
+                    <p:commandLink actionListener="#{veiculoBean.editar(veiculo.id)}" update="@all">
                         <h:graphicImage url="/img/edit.png" alt="Editar"/>
                     </p:commandLink>
                 </p:column>                

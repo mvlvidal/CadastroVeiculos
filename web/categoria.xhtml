@@ -15,9 +15,9 @@
                 <tbody>
                     <tr>
                         <td>Nome:</td>
-                        <td><h:inputText value="#{categoriaBean.ca1.nome}" /></td>
+                        <td><p:inputText value="#{categoriaBean.ca1.nome}" /></td>
                         <td>Qtd. Rodas:</td>
-                        <td><h:inputText value="#{categoriaBean.ca1.qtdRodas}" /></td>
+                        <td><p:inputText value="#{categoriaBean.ca1.qtdRodas}" /></td>
                     </tr>
                     <tr>
                         <td colspan="3">
@@ -37,8 +37,11 @@
                     <h:outputText value="#{categoria.qtdRodas}"/>  
                 </p:column>                
                 <p:column>
-                    <p:commandLink  update="tabCategorias">
+                    <p:commandLink actionListener="#{categoriaBean.deletar(categoria.id)}" update="tabCategorias">
                         <h:graphicImage url="/img/remove.png" alt="Excluir"/>
+                    </p:commandLink>
+                    <p:commandLink actionListener="#{categoriaBean.editar(categoria.id)}" update="@all">
+                        <h:graphicImage url="/img/edit.png" alt="Editar"/>
                     </p:commandLink>
                 </p:column>                
             </p:dataTable>
