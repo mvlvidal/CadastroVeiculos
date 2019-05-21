@@ -62,12 +62,4 @@ public class Categoria implements Serializable {
         this.veiculos = veiculos;
     }
     
-    /*
-    @Override
-    public String toString(){
-        return this.nome;
-    }
-
-   */
-    
 }

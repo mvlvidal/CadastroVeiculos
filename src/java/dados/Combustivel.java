@@ -63,13 +63,4 @@ public class Combustivel implements Serializable {
         this.veiculos = veiculos;
     }
     
-    /*
-    @Override
-    public String toString(){
-        return this.nome;
-    }
-
-    */
-
-    
 }

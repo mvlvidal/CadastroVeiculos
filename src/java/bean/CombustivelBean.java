@@ -32,7 +32,6 @@ public class CombustivelBean {
         
         if(co2 != null){
             
-           
             co1 = co2;
             codao.listar();
             

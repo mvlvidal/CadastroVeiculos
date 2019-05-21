@@ -40,7 +40,7 @@ public class Veiculo implements Serializable {
     Calendar fabricacao;
     
     @JoinColumn(name="idCategoria")
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Categoria categoria;
     
     @JoinColumn(name="idCombustivel")

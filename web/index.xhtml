@@ -19,10 +19,10 @@
                         <td><h:inputText value="#{veiculoBean.v1.marca}" /></td>
                         <td>Categoria:</td>
                         <td>
-                            <h:selectOneMenu value="#{veiculoBean.v1.categoria}">
+                            <p:selectOneMenu value="#{veiculoBean.v1.categoria}" >
                                 <f:selectItem itemLabel="Selecione" />
-                                <f:selectItems value="#{categoriaBean.categorias}" var="ca" itemLabel="#{ca.nome}"/>
-                            </h:selectOneMenu>
+                                <f:selectItems value="#{categoriaBean.categorias}" var="cat" itemValue="#{cat}" itemLabel="#{cat.nome}"/>
+                            </p:selectOneMenu>
                         </td>
                     </tr>
                     <tr>
@@ -34,14 +34,14 @@
                     <tr>
                         <td>Combustível:</td>  
                         <td colspan="5">
-                            <h:selectOneRadio value="#{veiculoBean.v1.combustivel}">
-                                <f:selectItems value="#{combustivelBean.combustiveis}" var="co" itemLabel="#{co.nome}"/>
-                            </h:selectOneRadio>
+                            <p:selectOneRadio value="#{veiculoBean.v1.combustivel}" >
+                                <f:selectItems value="#{combustivelBean.combustiveis}" var="com" itemValue="#{com}" itemLabel="#{com.nome}"/>
+                            </p:selectOneRadio>   
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3">
-                            <p:commandButton value="Gravar" actionListener="#{veiculoBean.salvar}" update="tabVeiculos"/>
+                            <p:commandButton value="Gravar" actionListener="#{veiculoBean.salvar()}" update="@all" />
                         </td>
                     </tr>
                 </tbody>
@@ -74,7 +74,6 @@
                     </p:commandLink>
                     <p:commandLink actionListener="#{veiculoBean.editar(veiculo.id)}" >
                         <h:graphicImage url="/img/edit.png" alt="Editar"/>
-                        <f:ajax render="formVeiculos"/>
                     </p:commandLink>
                 </p:column>                
             </p:dataTable>
