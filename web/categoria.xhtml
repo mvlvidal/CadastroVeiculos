@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"    
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    template="template.xhtml">
+
+    <div id="form-cad">
+        <h2># Categoria</h2>
+        <h:form>
+            <table border="0" id="tabCadastro">            
+                <tbody>
+                    <tr>
+                        <td>Nome:</td>
+                        <td><h:inputText value="#{categoriaBean.ca1.nome}" /></td>
+                        <td>Qtd. Rodas:</td>
+                        <td><h:inputText value="#{categoriaBean.ca1.qtdRodas}" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <p:commandButton value="Gravar" actionListener="#{categoriaBean.salvar}" update="tabCategorias"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p:dataTable var="categoria" value="#{categoriaBean.categorias}" id="tabCategorias">                    
+                <p:column headerText="ID">
+                    <h:outputText value="#{categoria.id}"/>
+                </p:column>                
+                <p:column headerText="Nome">
+                    <h:outputText value="#{categoria.nome}"/>
+                </p:column>                
+                <p:column headerText="Rodas">
+                    <h:outputText value="#{categoria.qtdRodas}"/>  
+                </p:column>                
+                <p:column>
+                    <p:commandLink  update="tabCategorias">
+                        <h:graphicImage url="/img/remove.png" alt="Excluir"/>
+                    </p:commandLink>
+                </p:column>                
+            </p:dataTable>
+        </h:form>
+    </div>
+
+</ui:decorate>
+
+

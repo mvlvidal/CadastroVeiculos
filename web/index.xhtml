@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"    
+             xmlns:f="http://xmlns.jcp.org/jsf/core"
+             xmlns:p="http://primefaces.org/ui"
+             template="template.xhtml">
+
+    <div id="form-cad">
+        <h2># Veículo</h2>
+        <h:form>
+            <table border="0" id="formVeiculos">            
+                <tbody>
+                    <tr>
+                        <td>Modelo:</td>
+                        <td><h:inputText value="#{veiculoBean.v1.modelo}" /></td>
+                        <td>Marca:</td>
+                        <td><h:inputText value="#{veiculoBean.v1.marca}" /></td>
+                        <td>Categoria:</td>
+                        <td>
+                            <h:selectOneMenu value="#{veiculoBean.v1.categoria}">
+                                <f:selectItem itemLabel="Selecione" />
+                                <f:selectItems value="#{categoriaBean.categorias}" var="ca" itemLabel="#{ca.nome}"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cor:</td>
+                        <td><h:inputText value="#{veiculoBean.v1.cor}" /></td>
+                        <td>Potência(HP):</td>
+                        <td><h:inputText value="#{veiculoBean.v1.potencia}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Combustível:</td>  
+                        <td colspan="5">
+                            <h:selectOneRadio value="#{veiculoBean.v1.combustivel}">
+                                <f:selectItems value="#{combustivelBean.combustiveis}" var="co" itemLabel="#{co.nome}"/>
+                            </h:selectOneRadio>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <p:commandButton value="Gravar" actionListener="#{veiculoBean.salvar}" update="tabVeiculos"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p:dataTable var="veiculo" value="#{veiculoBean.veiculos}" id="tabVeiculos">                    
+                <p:column headerText="Código">
+                    <h:outputText value="#{veiculo.id}"/>
+                </p:column>                
+                <p:column headerText="Modelo">
+                    <h:outputText value="#{veiculo.modelo}"/>
+                </p:column>                
+                <p:column headerText="Marca">
+                    <h:outputText value="#{veiculo.marca}"/>  
+                </p:column>                
+                <p:column headerText="Tipo">
+                    <h:outputText value="#{veiculo.categoria.nome}"/>
+                </p:column>                
+                <p:column headerText="Cor">
+                    <h:outputText value="#{veiculo.cor}"/>
+                </p:column>                
+                <p:column headerText="Potência">
+                    <h:outputText value="#{veiculo.potencia}"/>
+                </p:column>                
+                <p:column headerText="Combustível">
+                    <h:outputText value="#{veiculo.combustivel.nome}"/>
+                </p:column>                
+                <p:column>
+                    <p:commandLink actionListener="#{veiculoBean.deletar(veiculo.id)}" update="tabVeiculos">
+                        <h:graphicImage url="/img/remove.png" alt="Excluir"/>
+                    </p:commandLink>
+                    <p:commandLink actionListener="#{veiculoBean.editar(veiculo.id)}" >
+                        <h:graphicImage url="/img/edit.png" alt="Editar"/>
+                        <f:ajax render="formVeiculos"/>
+                    </p:commandLink>
+                </p:column>                
+            </p:dataTable>
+        </h:form>
+    </div>
+
+</ui:decorate>
+

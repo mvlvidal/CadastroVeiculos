@@ -1,0 +1,68 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+  background-color: buttonface; 
+  font-family: Trebuchet MS;
+}
+
+#content {
+    margin:0 auto;
+    width:75%;
+    background-color: white;
+}
+
+nav{
+    height:40px;
+    width: 100%;
+    background-color: #03498D;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin:0 auto;
+}
+
+nav ul li a{
+    color:#fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding:10px 5px;
+    margin:0;
+    float:left;
+}
+
+nav ul li a:hover{
+    background-color: #4E7FAF;
+}
+
+header{
+    height: 25%;
+}
+
+#form-cad{
+    max-width: 75%;
+    margin:0 auto;
+}
+
+#form-cad input[type="radio"]{
+    margin:10px;
+}
+
+#form-cad input[type="text"]{
+    width:150px;
+    margin:5px;
+}
+
+#form-cad input[type="submit"]{
+    float:right;
+}
+
+footer{
+    height:50px;
+    color:#fff;
+    background-color:#000;
+}

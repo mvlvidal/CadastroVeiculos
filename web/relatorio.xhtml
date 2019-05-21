@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             template="template.xhtml"
+             xmlns:f="http://xmlns.jcp.org/jsf/core"
+             xmlns:p="http://primefaces.org/ui">
+    <div id="relatorio">
+        <h:form>
+            <p:dataTable var="veiculo" value="#{veiculoBean.veiculos}" id="tabRelatorio">                    
+                <p:column headerText="Código">
+                    <h:outputText value="#{veiculo.cod}"/>
+                </p:column>                
+                <p:column headerText="Modelo">
+                    <h:outputText value="#{veiculo.modelo}"/>
+                </p:column>                
+                <p:column headerText="Marca">
+                    <h:outputText value="#{veiculo.marca}"/>  
+                </p:column>                
+                <p:column headerText="Tipo">
+                    <h:outputText value="#{veiculo.tipo}"/>
+                </p:column>                
+                <p:column headerText="Cor">
+                    <h:outputText value="#{veiculo.cor}"/>
+                </p:column>                
+                <p:column headerText="Potência">
+                    <h:outputText value="#{veiculo.potencia}"/>
+                </p:column>                
+                <p:column headerText="Combustível">
+                    <h:outputText value="#{veiculo.combustivel}"/>
+                </p:column>                
+                <p:column>
+                    <p:commandLink actionListener="#{veiculoBean.remover(veiculo.cod)}" update="tabRelatorio">
+                        <h:graphicImage url="/img/remove.png" alt="Excluir"/>
+                    </p:commandLink>
+                </p:column>                
+            </p:dataTable>
+        </h:form>
+    </div>
+
+</ui:decorate>
+

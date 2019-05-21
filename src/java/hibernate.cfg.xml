@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bdveiculos</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+        
+        <property name="hibernate.show_sql">true</property><!-- Exibe as linhas de coimando SQL no Log RECOMENDADO APENAS PARA PROJETO-->
+        <property name="hibernate.format_sql">true</property><!-- Exibe o SQL formatado e identado -->
+        <property name="hbm2ddl.auto">update</property><!-- Usar CREATE apenas para a primeria execução do projeto, o create exclui todas as tabelas do BD -->
+       
+        <mapping class="dados.Categoria" />
+        <mapping class="dados.Combustivel" />
+        <mapping class="dados.Veiculo" />
+        
+    </session-factory>
+</hibernate-configuration>

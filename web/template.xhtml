@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Cadastro de Veículos</title>
+        <link rel="stylesheet" type="text/css"  href="#{facesContext.externalContext.requestContextPath}/estilo.css" media="screen"/>
+    </h:head>
+    <h:body>
+        <div id="content">
+
+            <header>
+                <center>
+                    <h1>Cadastro de Veículos</h1>
+                </center>
+            </header>
+            <main>
+                <div id="menu">
+                    <nav>
+                        <ul>
+                            <li>
+                                <h:link outcome="/index" value="VEICULOS"/>
+                            </li>
+                            <li>
+                                <h:link outcome="/categoria" value="CATEGORIAS"/>
+                            </li>
+                            <li>
+                                <h:link outcome="/combustivel" value="COMBUSTIVEIS"/>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <ui:insert /> <!-- Insere as paginas de acordo com click do menu -->
+            </main>
+            <footer>
+                <center>
+                    <p><b>Desenvolvido por:</b> Marcus Vidal</p>
+                </center>
+            </footer>
+        </div>
+    </h:body>
+</html>
+
